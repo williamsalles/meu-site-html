@@ -1,0 +1,29 @@
+name: Validar HTML do Projeto
+
+# Define o gatilho: roda a cada push na branch main
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validar-codigo:
+    name: Checar Sintaxe do HTML
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Baixa o seu código para a VM do GitHub
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      # Step 2: Instala o Node.js para rodar o validador
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Step 3: Instala e roda o HTMLHint para procurar erros no HTML
+      - name: Rodar Validador HTML (HTMLHint)
+        run: |
+          npx htmlhint index.html
