@@ -19,7 +19,7 @@ jobs:
 
       # Step 2: Instala o Node.js para rodar o validador
       - name: Configurar Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '24'
 
