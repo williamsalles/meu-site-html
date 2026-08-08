@@ -15,7 +15,7 @@ jobs:
     steps:
       # Step 1: Baixa o seu código para a VM do GitHub
       - name: Baixar repositório
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Step 2: Instala o Node.js para rodar o validador
       - name: Configurar Node.js
